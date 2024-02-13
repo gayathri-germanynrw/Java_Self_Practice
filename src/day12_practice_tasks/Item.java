@@ -20,12 +20,17 @@ public class Item {
             System.exit(1);
         }
 
-        for(int i=0;i<chArr.length;i++){
-            if (!Character.isLetterOrDigit(chArr[i])){
-                System.err.println("Name should not any special Character\t" + name);
-                System.exit(1);
-            }
+        if (!name.matches("^[a-zA-Z\\s]+$")) {
+            System.err.println("Name must contain only letters and spaces.");
+            System.exit(1);
         }
+
+//        for(int i=0;i<chArr.length;i++){
+//            if (!Character.isLetterOrDigit(chArr[i])){
+//                System.err.println("Name should not any special Character\t" + name);
+//                System.exit(1);
+//            }
+//        }
 
         this.name = name;
     }
