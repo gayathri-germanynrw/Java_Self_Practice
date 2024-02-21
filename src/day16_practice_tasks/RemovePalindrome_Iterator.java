@@ -12,18 +12,16 @@ public class RemovePalindrome_Iterator {
                 "reviver", "racecar", "madam"));
         System.out.println(list);   // Arrays.asList  allows null also.
 
-        // Using Iterator
-        List<String> list2 = new ArrayList<>();
-        Iterator itr =list.iterator();
-       while(itr.hasNext()){
-
-           String str=itr.next().toString();
-           if (str.equalsIgnoreCase(new StringBuilder(str).reverse().toString())) {
-               continue;
-           }
-           list2.add(str);
+        // Using Iterator  , (hasNext(), next(), remove methods )
+        Iterator<String> itr = list.iterator(); // returns Iterator interface
+        while (itr.hasNext()) {
+            String str = itr.next();
+            String str2 = new StringBuilder(str).reverse().toString();
+            if (str.equalsIgnoreCase(str2)) {
+                itr.remove();
+            }
         }
-        System.out.println(list2);
+        System.out.println(list);
 
     }
 }
